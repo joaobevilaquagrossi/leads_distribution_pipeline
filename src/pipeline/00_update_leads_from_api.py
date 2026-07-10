@@ -2,10 +2,14 @@ import requests
 import mysql.connector
 from datetime import datetime
 import time
+import os
+from dotenv import load_dotenv
 
-API_URL = "https://brio.cvcrm.com.br/api/v1/cvdw/distribuicao/leads"
-API_TOKEN = "09e9f9c82f8483d4d14d8eae6dc2928c0f1748dd"
-API_EMAIL = "joao.grossi@briovendas.com.br"
+load_dotenv()
+
+API_URL = os.getenv("API_URL")
+API_TOKEN = os.getenv("API_TOKEN")
+API_EMAIL = os.getenv("API_EMAIL")
 
 headers = {
     "token": API_TOKEN,
@@ -14,10 +18,10 @@ headers = {
 }
 
 conn = mysql.connector.connect(
-    host="10.100.100.209",
-    port=3306,
-    user="joao_grossi",
-    password="brio@2026",
+    host=os.getenv("MYSQL_HOST"),
+    port=os.getenv("MYSQL_PORT"),
+    user=os.getenv("MYSQL_USER"),
+    password=os.getenv("MYSQL_PASSWORD"),
     database="cvdw"
 )
 
