@@ -1,0 +1,11 @@
+.venv/
+.env
+__pycache__/
+
+data/raw/
+data/processed/
+
+*.accdb
+*.mdb
+*.xlsx
+*.csv
